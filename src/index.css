@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: modernGame;
+    src: url('./assets/fonts/ModernWarfare-OV7KP.ttf');
+}
+
+.warfare{
+    font-family: modernGame;
+}
+::-webkit-scrollbar{
+    display: nonet;
+}
