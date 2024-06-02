@@ -12,13 +12,16 @@ const Navbar = () => {
             </NavLink>
         </div>
         <div className="flex gap-6 ">
-            <NavLink to='/go' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
+            <NavLink to='/' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
+                Home
+            </NavLink>
+            <NavLink to='/games' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
                 Games
             </NavLink>
             <NavLink to='/about' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
                 About
             </NavLink>
-            <NavLink to='/contact' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
+            <NavLink to='/contactus' className="text-lg font-semibold after:h-[2.5px] after:origin-left after:w-full relative after:left-0 after:top-full after:absolute after:scale-x-0  after:transition-transform after:rounded after:shadow-[0_0px_20px_1px_#8d1bb5] after:hover:scale-x-100 after:bg-[#8d1bb5]" >
                 Contact
             </NavLink>
         </div>

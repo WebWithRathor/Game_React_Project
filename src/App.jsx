@@ -1,16 +1,15 @@
 import { useState } from 'react'
-import Layout from './components/Layout'
 import Navbar from './components/Navbar'
+import MainRoutes from './Routes/MainRoutes'
 
 
 function App() {
 
   return (
     <>
-      <div className='bg-zinc-900 text-white w-full pb-10'>
+      <div className='bg-zinc-900 text-white w-full min-h-screen'>
         <Navbar />
-        <Layout />
-
+        <MainRoutes/>
       </div>
     </>
   )
