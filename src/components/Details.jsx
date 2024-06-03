@@ -18,8 +18,8 @@ const Details = () => {
     }
 
     return (
-        <div className="details h-full flex px-16 gap-10 pt-8 items-center">
-            <div className="left w-1/2 space-y-3.5">
+        <div className="details h-full flex flex-col md:flex-row px-6 md:px-16 gap-10 py-5 md:pt-8 items-center">
+            <div className="left w-full md:w-1/2 space-y-3.5">
                 <h1 className="text-4xl font-semibold warfare">{title}</h1>
                 <div className="image w-full h-[50vh] rounded overflow-hidden">
                     <img className='w-full h-full object-cover' src={image} alt="" />
@@ -34,7 +34,7 @@ const Details = () => {
                   <button onClick={DeleteHandler} className='w-1/2 py-2 text-md text-[#8d1bb5] shadow-inner shadow-[#8c1bb57a] font-semibold hover:bg-[#8d1bb5] hover:text-white transition-all border-[#8d1bb5] bg-white rounded'> <i className="ri-delete-bin-2-line"></i> Delete</button>
                 </div>
             </div>
-            <div className="right w-1/2">
+            <div className="right w-full md:w-1/2">
                 <h1 className='text-2xl font-semibold mb-3'>Genre</h1>
                 <ul className='pl-7 list-disc'>
                     {Genre.split(',').map((e,i)=>{

@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
     <Home/>
-    <Games/>
+    <Games mt="5" />
     <Footer/>
     </>
   )

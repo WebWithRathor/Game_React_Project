@@ -41,7 +41,7 @@ const Create = () => {
                 <input onChange={(e) => setGenre(e.target.value)} value={Genre} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Genre (seprate it by , )" />
                 <input onChange={(e) => setstoryline(e.target.value)} value={storyline} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Story line" />
                 <input onChange={(e) => setcharacters(e.target.value)} value={characters} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Characters (seprate it by , )" />
-                <select defaultValue={rating} value={rating} onChange={e=>setrating(e.target.value)} className='w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5'>
+                <select value={rating} onChange={e=>setrating(e.target.value)} className='w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5'>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="3" >3 Star</option>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="4" >4 Star</option>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="5" >5 Star</option>

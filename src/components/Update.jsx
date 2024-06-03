@@ -33,7 +33,7 @@ const Update = () => {
     return (
         <>
             <form onSubmit={SubmitHandler} className='px-16 py-8 '>
-                <h1 className='text-5xl warfare mb-5'>Add <span className='text-[#8d1bb5]'>Game</span></h1>
+                <h1 className='text-5xl warfare mb-5'>Update <span className='text-[#8d1bb5]'>Game</span></h1>
                 <input onChange={(e) => setimage(e.target.value)} value={image} type="url" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Game Image URL" />
                 <input onChange={(e) => settitle(e.target.value)} value={title} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Title" />
                 <input onChange={(e) => setGenre(e.target.value)} value={Genre} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Genre (seprate it by , )" />
