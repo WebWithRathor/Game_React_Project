@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import GameController from '../assets/pngimg.com - gamepad_PNG60.png'
-import { gamescontext } from '../contexts/GamesContext'
 
 const Home = () => {
   return (

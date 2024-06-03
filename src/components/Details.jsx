@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { gamescontext } from '../contexts/GamesContext';
 import { useParams,NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Details = () => {
     const { id } = useParams()
@@ -12,6 +13,7 @@ const Details = () => {
         const newGames = Games.filter(game => game.id!== id);
         setGames(newGames);
         localStorage.setItem('Games', JSON.stringify(newGames));
+        toast.error("Deleted Successfully")
         navigate('/')
     }
 

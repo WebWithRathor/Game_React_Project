@@ -2,8 +2,11 @@ import React, { useContext, useState } from 'react'
 import { gamescontext } from '../contexts/GamesContext'
 import { useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
 
 const Create = () => {
+
+    
     const navigate = useNavigate();
     const [Games, setGames] = useContext(gamescontext)
     const [image, setimage] = useState('')
@@ -19,6 +22,7 @@ const Create = () => {
         const newGame = { id:nanoid(), image, description, title, Genre, storyline, characters,rating };
         setGames([...Games, newGame]);
         localStorage.setItem('Games', JSON.stringify([...Games, newGame]));
+        toast.success("Created Successfully");
         setimage('');
         setGenre('');
         setdescription('');

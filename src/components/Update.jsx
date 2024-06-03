@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { gamescontext } from '../contexts/GamesContext'
 import { useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Update = () => {
     const navigate = useNavigate();
@@ -26,6 +27,7 @@ const Update = () => {
         setstoryline('');
         settitle('');
         setrating("3");
+        toast.success("Updated successfully")
         navigate(`/game/${newGame.id}`)
     }
     return (

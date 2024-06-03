@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import Cards from './Cards'
 import { gamescontext } from '../contexts/GamesContext';
+import Footer from './Footer';
 const Games = () => {
     const [Games] = useContext(gamescontext);
 
@@ -13,6 +14,7 @@ const Games = () => {
                     : Games.map(game => <Cards key={game.id} title={game.title} description={game.description} image={game.image} id={game.id} />)}
 
             </div>
+            <Footer/>
         </>
     )
 }
