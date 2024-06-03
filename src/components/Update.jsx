@@ -1,24 +1,24 @@
 import React, { useContext, useState } from 'react'
 import { gamescontext } from '../contexts/GamesContext'
-import { useNavigate } from 'react-router-dom'
-import { nanoid } from 'nanoid';
+import { useNavigate, useParams } from 'react-router-dom'
 
-const Create = () => {
+const Update = () => {
     const navigate = useNavigate();
+    const { id } = useParams()
     const [Games, setGames] = useContext(gamescontext)
-    const [image, setimage] = useState('')
-    const [description, setdescription] = useState('')
-    const [title, settitle] = useState('')
-    const [Genre, setGenre] = useState('')
-    const [storyline, setstoryline] = useState('')
-    const [characters, setcharacters] = useState('')
-    const [rating, setrating] = useState("3")
-
+    const game = Games.find(game => game.id === id);
+    const [image, setimage] = useState(game.image)
+    const [description, setdescription] = useState(game.description)
+    const [title, settitle] = useState(game.title)
+    const [Genre, setGenre] = useState(game.Genre)
+    const [storyline, setstoryline] = useState(game.storyline)
+    const [characters, setcharacters] = useState(game.characters)
+    const [rating, setrating] = useState(game.rating)
     const SubmitHandler = (e) => {
         e.preventDefault()
-        const newGame = { id:nanoid(), image, description, title, Genre, storyline, characters,rating };
-        setGames([...Games, newGame]);
-        localStorage.setItem('Games', JSON.stringify([...Games, newGame]));
+        const newGame = { id:game.id, image, description, title, Genre, storyline, characters,rating };
+        Games[Games.findIndex((games) => games.id == id)] = newGame;
+        localStorage.setItem('Games', JSON.stringify([...Games]));
         setimage('');
         setGenre('');
         setdescription('');
@@ -37,7 +37,7 @@ const Create = () => {
                 <input onChange={(e) => setGenre(e.target.value)} value={Genre} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Genre (seprate it by , )" />
                 <input onChange={(e) => setstoryline(e.target.value)} value={storyline} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Story line" />
                 <input onChange={(e) => setcharacters(e.target.value)} value={characters} type="text" className="w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5" placeholder="Characters (seprate it by , )" />
-                <select defaultValue={rating} value={rating} onChange={e=>setrating(e.target.value)} className='w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5'>
+                <select  value={rating} onChange={e=>setrating(e.target.value)} className='w-full border  focus:ring-4 shadow shadow-[#8d1bb5] focus:ring-[#8d1bb5]   rounded-md bg-transparent px-3 py-4 text-white text-lg mb-5'>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="3" >3 Star</option>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="4" >4 Star</option>
                     <option className="text-[#8d1bb5] bg-gray-400 p-2 " value="5" >5 Star</option>
@@ -49,4 +49,4 @@ const Create = () => {
     )
 }
 
-export default Create
+export default Update

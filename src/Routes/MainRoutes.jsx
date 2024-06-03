@@ -7,6 +7,7 @@ import About from '../components/About'
 import ContactUs from '../components/ContactUs'
 import Details from '../components/Details'
 import NotFound from '../components/NotFound'
+import Update from '../components/Update'
 
 const MainRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const MainRoutes = () => {
         <Route path='/about' element={<About/>} />
         <Route path='/contactus' element={<ContactUs/>} />
         <Route path='/Game/:id' element={<Details/>} />
+        <Route path='/update/:id' element={<Update/>} />
         <Route path='*' element={<NotFound/>}/>
     </Routes>
   )
