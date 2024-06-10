@@ -3,10 +3,11 @@ import { gamescontext } from '../contexts/GamesContext'
 import { useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { addgame } from '../store/actions/gameActions';
 
 const Create = () => {
-
-    
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const [Games, setGames] = useContext(gamescontext)
     const [image, setimage] = useState('')
@@ -20,8 +21,7 @@ const Create = () => {
     const SubmitHandler = (e) => {
         e.preventDefault()
         const newGame = { id:nanoid(), image, description, title, Genre, storyline, characters,rating };
-        setGames([...Games, newGame]);
-        localStorage.setItem('Games', JSON.stringify([...Games, newGame]));
+        dispatch(addgame(newGame));
         toast.success("Created Successfully");
         setimage('');
         setGenre('');

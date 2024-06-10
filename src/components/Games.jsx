@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import Cards from './Cards'
-import { gamescontext } from '../contexts/GamesContext';
-import Footer from './Footer';
+import { useSelector } from 'react-redux';
 const Games = ({mt}) => {
-    const [Games] = useContext(gamescontext);
+    const {Games} = useSelector(state=>state.gameSlice);
 
     return (
         <>

@@ -2,20 +2,20 @@ import React, { useContext } from 'react'
 import { gamescontext } from '../contexts/GamesContext';
 import { useParams,NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { deletegame } from '../store/actions/gameActions';
 
 const Details = () => {
     const { id } = useParams()
+    const dispatch = useDispatch()
     const navigate = useNavigate();
-    const [Games,setGames] = useContext(gamescontext);
-    const { title, image, description, rating, Genre, characters, storyline } = Games.find(game => game.id === id);
-    
-    const DeleteHandler = () => {
-        const newGames = Games.filter(game => game.id!== id);
-        setGames(newGames);
-        localStorage.setItem('Games', JSON.stringify(newGames));
-        toast.error("Deleted Successfully")
-        navigate('/')
+    const {Games} = useSelector(state => state.gameSlice)
+    const { title, image, description, rating, Genre, characters, storyline } = Games.find(games => games.id === id);
+    const deleteHandler = ()=>{
+        dispatch(deletegame(id));
+        navigate("/")
     }
+
 
     return (
         <div className="details h-full flex flex-col md:flex-row px-6 md:px-16 gap-10 py-5 md:pt-8 items-center">
@@ -31,7 +31,7 @@ const Details = () => {
                 </h1>
                 <div className="buttons flex gap-4">
                   <NavLink className='w-1/2' to={`/update/${id}`}><button className='w-full py-2 text-md text-[#8d1bb5] shadow-inner shadow-[#8d1bb57a] font-semibold hover:bg-[#8d1bb5] hover:text-white transition-all border-[#8d1bb5] bg-white rounded'> <i className="ri-edit-line"></i> Update</button></NavLink>
-                  <button onClick={DeleteHandler} className='w-1/2 py-2 text-md text-[#8d1bb5] shadow-inner shadow-[#8c1bb57a] font-semibold hover:bg-[#8d1bb5] hover:text-white transition-all border-[#8d1bb5] bg-white rounded'> <i className="ri-delete-bin-2-line"></i> Delete</button>
+                  <button onClick={deleteHandler} className='w-1/2 py-2 text-md text-[#8d1bb5] shadow-inner shadow-[#8c1bb57a] font-semibold hover:bg-[#8d1bb5] hover:text-white transition-all border-[#8d1bb5] bg-white rounded'> <i className="ri-delete-bin-2-line"></i> Delete</button>
                 </div>
             </div>
             <div className="right w-full md:w-1/2">

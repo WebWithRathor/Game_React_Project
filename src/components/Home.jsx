@@ -1,8 +1,11 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import GameController from '../assets/pngimg.com - gamepad_PNG60.png'
+import { useDispatch } from 'react-redux'
+import { addgame } from '../store/actions/gameActions'
 
 const Home = () => {
+
   return (
     <>
       <NavLink to='/AddGame'>

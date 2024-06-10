@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react'
 import { gamescontext } from '../contexts/GamesContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
+import { updategame } from '../store/actions/gameActions'
 
 const Update = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const { id } = useParams()
-    const [Games, setGames] = useContext(gamescontext)
+    const {Games} = useSelector(state=>state.gameSlice)
     const game = Games.find(game => game.id === id);
     const [image, setimage] = useState(game.image)
     const [description, setdescription] = useState(game.description)
@@ -18,8 +21,7 @@ const Update = () => {
     const SubmitHandler = (e) => {
         e.preventDefault()
         const newGame = { id:game.id, image, description, title, Genre, storyline, characters,rating };
-        Games[Games.findIndex((games) => games.id == id)] = newGame;
-        localStorage.setItem('Games', JSON.stringify([...Games]));
+        dispatch(updategame(newGame))
         setimage('');
         setGenre('');
         setdescription('');
