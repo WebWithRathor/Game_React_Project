@@ -2,7 +2,6 @@ import { addGame, updateGame, deleteGame } from "../reducers/gameSlice";
 
 export const addgame = (game) => (dispatch, getState) => {
     dispatch(addGame(game))
-    console.log(getState().gameSlice.Games);
     localStorage.setItem('Games', JSON.stringify(getState().gameSlice.Games));
 };
 
